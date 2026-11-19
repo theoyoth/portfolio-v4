@@ -1,16 +1,35 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
-import LoaderProgress from "./_loading/loader-progress";
+import LoadingProgress from "./_loading/loading-progress";
+import localFont from "next/font/local"
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const montserrat = Montserrat({
   subsets: ["latin"],
+  display: "swap",
+  fallback: ["Arial"],
+  style: "normal",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const okine = localFont({
+  src:[
+    {
+      path:"./font/MADEOkineSans-Regular.otf",
+      weight:"400",
+      style:"normal"
+    },
+    {
+      path:"./font/MADEOkineSans-Medium.otf",
+      weight:"500",
+      style:"normal",
+    },
+    {
+      path:"./font/MADEOkineSans-Bold.otf",
+      weight:"700",
+      style:"normal",
+    },    
+  ],
+  display: "swap"
 });
 
 export const metadata: Metadata = {
@@ -22,11 +41,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className='h-full antialiased'
     >
-      <body className="min-h-full flex flex-col bg-[#131313]">
-        <LoaderProgress />
+      <body className={`${okine.className} min-h-full flex flex-col bg-[#131313]`}>
+        <>
+        <LoadingProgress />
         {children}
+        </>
       </body>
     </html>
   );
