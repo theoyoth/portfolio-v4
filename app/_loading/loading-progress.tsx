@@ -43,9 +43,9 @@ const LoadingProgress = () => {
     <>
     {
       isVisible ? (
-        <div ref={container} className='bg-[#131313] h-dvh w-dvw absolute z-50 flex justify-center items-center'>
+        <div ref={container} className='bg-primary h-dvh w-dvw absolute z-50 flex justify-center items-center'>
           <div className='max-content overflow-hidden'>
-            <h1 ref={textProgress} className='text-center text-xl font-bold text-[#d2ff00]'>0%</h1>
+            <h1 ref={textProgress} className='text-center text-xl font-bold text-third'>0%</h1>
           </div>
         </div>
       ) : null

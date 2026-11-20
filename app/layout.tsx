@@ -1,15 +1,8 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
 import "./globals.css";
 import LoadingProgress from "./_loading/loading-progress";
 import localFont from "next/font/local"
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  display: "swap",
-  fallback: ["Arial"],
-  style: "normal",
-});
+import Navbar from "@/components/navbar";
 
 const okine = localFont({
   src:[
@@ -43,10 +36,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className='h-full antialiased'
     >
-      <body className={`${okine.className} min-h-full flex flex-col bg-[#131313]`}>
-        <>
+      <body className={`${okine.className} min-h-full flex flex-col bg-primary`}>
         <LoadingProgress />
-        {children}
+        <>
+          <Navbar />
+          {children}
         </>
       </body>
     </html>
