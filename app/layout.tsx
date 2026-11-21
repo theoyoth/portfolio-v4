@@ -37,7 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className='h-full antialiased'
     >
       <body className={`${okine.className} min-h-full flex flex-col bg-primary`}>
-        <LoadingProgress />
+        {/* <LoadingProgress /> */}
         <>
           <Navbar />
           {children}
